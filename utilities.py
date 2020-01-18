@@ -1,7 +1,7 @@
 '''
 Created on Jun 3, 2019
 
-@author: dan
+@author: Leo
 '''
 
 import datetime as dt
@@ -23,11 +23,11 @@ from sklearn.linear_model import LinearRegression
 import os.path
 save_path = r'C:\Users\leo82\eclipse-workspace\capstone\results\test'
 
-
-HOST            = 'sanjose'
-USER            = 'student'
-#PASSWORD        = 'G*Br0nc0'
-DB_NAME         = 'atlas'
+# This info used for access to database.  If recreating, match your database to database spec, using same data source.
+HOST            = #####
+USER            = #####
+#PASSWORD        = #####
+DB_NAME         = #####
 
 class USTradingCalendar(AbstractHolidayCalendar):
     rules = [
