@@ -1,7 +1,7 @@
 '''
 Created on Jun 3, 2019
 
-@author: Leo82
+@author: leo82
 '''
 
 import datetime as dt
