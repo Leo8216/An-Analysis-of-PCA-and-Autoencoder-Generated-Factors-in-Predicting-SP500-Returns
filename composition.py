@@ -1,7 +1,7 @@
 '''
 Created on Jun 3, 2019
 
-@author: dan trepanier
+@author: leo82
 '''
 
 import logging
