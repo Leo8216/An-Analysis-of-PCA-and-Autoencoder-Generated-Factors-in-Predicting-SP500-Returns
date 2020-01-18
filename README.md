@@ -18,7 +18,7 @@ The results show that none of the techniques used significantly outperforms a si
 
 The approach to generate returns from factors is outlined in flowchart below:
 
-![Image of Distribution of Animal Type](https://github.com/Leo8216/Exploratory-Analysis-Austin-Animal-Center-Shelter/blob/master/images/10_Anymal_Type_Distribution_ALL.png)
+![Image of Approach Flowchart](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/approach.JPG)
 
 This was done using a rolling window with size equal to lookback (# of trading periods). Meaning a returns matrix, of dimensions (lookback, # of components of index), was used to generate factors (requiring PCA and Autoencoder factors) which then were used to predict the factors for the next trading period. 
 
@@ -48,7 +48,7 @@ With returns matrix for all trading days and a lookback period (# of days to inc
 
 __PCA:__ 100 components were used. 100 components were used so that >70% of the variance was retained (~75% retained with 100 components). The original intent was to use as many components needed to explain 95% of the variance, but this would have resulted in 300+ components for the index – refer to Figure 1 below. Such large number of components defeats the purpose of PCA, in addition to being computationally expensive. We, therefore, decided to explore what kind of results we would get if using only 100 components. 
 
-FIGURE 1 HERE
+![Image of PCA Cummulative Variance](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/approach.JPG)
 
 To have a frame of reference, a regression was run predicting individual stock returns from 100 PCAs that were generated from known returns, to understand how well a linear regression could do if all PCAs are predicted accurately. This regression was on daily returns, from 2010-01-01 to 2018-12-31, 80% training, 20% test (equivalent to 453 trading days). This regression had an R2 of 0.5392, a mean of 73.61% (same direction per trading day) and a standard deviation of 10.52%. Therefore, if PCA are predicted perfectly, a 74% of constituents predicted in the correct direction are within the realm of possibilities.
 
