@@ -49,7 +49,7 @@ With returns matrix for all trading days and a lookback period (# of days to inc
 __PCA:__ 100 components were used. 100 components were used so that >70% of the variance was retained (~75% retained with 100 components). The original intent was to use as many components needed to explain 95% of the variance, but this would have resulted in 300+ components for the index – refer to Figure 1 below. Such large number of components defeats the purpose of PCA, in addition to being computationally expensive. We, therefore, decided to explore what kind of results we would get if using only 100 components. 
 
 ![Image of PCA Cummulative Explained Variance](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/pca_cummulative_explained_variance.png)
-*Figure 1: Cumulative Explained Variance for PCAs generated from 2010-01-01 to 2018-12-31 Daily Returns Matrix*
+          *Figure 1: Cumulative Explained Variance for PCAs generated from 2010-01-01 to 2018-12-31 Daily Returns Matrix*
 
 To have a frame of reference, a regression was run predicting individual stock returns from 100 PCAs that were generated from known returns, to understand how well a linear regression could do if all PCAs are predicted accurately. This regression was on daily returns, from 2010-01-01 to 2018-12-31, 80% training, 20% test (equivalent to 453 trading days). This regression had an R2 of 0.5392, a mean of 73.61% (same direction per trading day) and a standard deviation of 10.52%. Therefore, if PCA are predicted perfectly, a 74% of constituents predicted in the correct direction are within the realm of possibilities.
 
@@ -64,7 +64,7 @@ __Autoencoders:__ A fully connected neural network was used, with ‘adadelta’
 *	Output layer: Dense(500, activation='linear')
 
 ![Image of Autoencoder](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/autoencoder.png)
-*Figure 2: Illustration of how SP500 Returns were feed through Autoencoder*
+          *Figure 2: Illustration of how SP500 Returns were feed through Autoencoder*
 
 To have a frame of reference, a similar approach to PCA was taken, using factors generated from the encoder layer instead of the principal components (PCA generated). This regression had an R2 of 0.2593, a mean of 72.01% (same direction per trading day) and a standard deviation of 10.89%. Therefore, if Autoencoder factors are predicted perfectly, a 72% of constituents predicted in the correct direction are within the realm of possibilities.
 
@@ -109,52 +109,52 @@ In addition, market cap weighted results were calculated for each trading period
 
 This paper presents the results of a different approach to predicting stock market returns by utilizing PCAs and Autoencoders to generate factors, and then predicting factors and returns for next trading period (daily, weekly, or monthly). The overall results do not significantly outperform a random guess (50%) of whether the market will go up or down. When looking at results for individual trading periods, some do show significant outperformance, however this happens inconsistently in an unpredictable manner. The market weighted results, while interesting for weekly and monthly trading periods, are inconsistent and unreliable for trading.   It is clear that the factors generated with PCA and Autoencoder during this work do not outperform those currently used in industry such as the Fama French factors (French, 1993). Use of other techniques for predicting the next day factors, and predicting the returns from the forecasted factors may yield better results.
 
-# References
+## References
 
 * Compustat - Capital IQ. (n.d.). North America Daily / Index Constituents. Retrieved June 16, 2019, from Wharton Research Data Services: "WRDS" wrds.wharton.upenn.edu
 * Compustat - Capital IQ. (n.d.). North America Daily / Security Daily. Retrieved June 16, 2019, from Wharton Research Data Services: "WRDS" wrds.wharton.upenn.edu
 * French, E. F. (1993). Common risk factors in the returns on stocks and bonds. Journal of Financial Economics 33, 3-56.
 * Investopedia. (n.d.). Fama and French Three Factor Model. Retrieved 11 10, 2019, from Investopedia: https://www.investopedia.com/terms/f/famaandfrenchthreefactormodel.asp
 
-# Appendix A – Sample Returns Matrix - Dow 30, 2018 returns, weekly trading period
+## Appendix A – Sample Returns Matrix - Dow 30, 2018 returns, weekly trading period
 
 ![Image of Dow30 Returns 2018 Weekly](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/dow30_2018_returns_weekly.png)
 
-# Appendix B – Results for ~60 periods for daily, weekly and monthly trading periods
+## Appendix B – Results for ~60 periods for daily, weekly and monthly trading periods
 
-Trading period: Daily, start_date: 10/1/2017, end_date: 12/31/2018
+    Trading period: Daily, start_date: 10/1/2017, end_date: 12/31/2018
 
 ![Image of daily, trading day](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/daily_trading_day.png)
 
-Trading period: Daily, start_date: 10/1/2017, end_date: 12/31/2018
+    Trading period: Daily, start_date: 10/1/2017, end_date: 12/31/2018
 
 ![Image of daily, stock](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/daily_stock.png)
 
-Trading period: Daily, start_date: 10/1/2017, end_date: 12/31/2018
+    Trading period: Daily, start_date: 10/1/2017, end_date: 12/31/2018
 
 ![Image of daily, market cap](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/daily_market_cap.png)
 
-Trading period: Weekly, start_date: 12/1/2012, end_date: 12/31/2018
+    Trading period: Weekly, start_date: 12/1/2012, end_date: 12/31/2018
 
 ![Image of weekly, trading week](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/weekly_trading_week.png)
 
-Trading period: Weekly, start_date: 12/1/2012, end_date: 12/31/2018
+    Trading period: Weekly, start_date: 12/1/2012, end_date: 12/31/2018
 
 ![Image of weekly, stock](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/weekly_stock.png)
 
-Trading period: Weekly, start_date: 12/1/2012, end_date: 12/31/2018
+    Trading period: Weekly, start_date: 12/1/2012, end_date: 12/31/2018
 
 ![Image of weekly, market cap](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/weekly_market_cap.png)
 
-Trading period: Monthly, start_date: 11/1/1992, end_date: 12/31/2018
+    Trading period: Monthly, start_date: 11/1/1992, end_date: 12/31/2018
 
 ![Image of monthly, trading month](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/monthly_trading_month.png)
 
-Trading period: Monthly, start_date: 11/1/1992, end_date: 12/31/2018
+    Trading period: Monthly, start_date: 11/1/1992, end_date: 12/31/2018
 
 ![Image of monthly, stock](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/monthly_stock.png)
 
-Trading period: Monthly, start_date: 11/1/1992, end_date: 12/31/2018
+    Trading period: Monthly, start_date: 11/1/1992, end_date: 12/31/2018
 
 ![Image of monthly, market cap](https://github.com/Leo8216/An-Analysis-of-PCA-and-Autoencoder-Generated-Factors-in-Predicting-SP500-Returns/blob/master/images/monthly_market_cap.png)
 
