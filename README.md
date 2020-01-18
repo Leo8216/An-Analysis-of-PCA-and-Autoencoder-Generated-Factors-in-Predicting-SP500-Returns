@@ -18,7 +18,7 @@ The results show that none of the techniques used significantly outperforms a si
 
 The approach to generate returns from factors is outlined in flowchart below:
 
-IMAGE HERE
+![Image of Distribution of Animal Type](https://github.com/Leo8216/Exploratory-Analysis-Austin-Animal-Center-Shelter/blob/master/images/10_Anymal_Type_Distribution_ALL.png)
 
 This was done using a rolling window with size equal to lookback (# of trading periods). Meaning a returns matrix, of dimensions (lookback, # of components of index), was used to generate factors (requiring PCA and Autoencoder factors) which then were used to predict the factors for the next trading period. 
 
